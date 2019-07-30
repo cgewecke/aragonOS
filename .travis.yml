@@ -7,8 +7,6 @@ cache:
   npm: false
 env:
   - TASK=test:gas:ci
-before_script:
-  - npm prune
 script: "npm run $TASK"
 after_success:
   - cat coverage/lcov.info | ./node_modules/.bin/coveralls
