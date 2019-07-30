@@ -2,13 +2,10 @@ language: node_js
 notifications:
   email: false
 node_js:
-  - '8'
+  - '10'
 cache:
   npm: false
 env:
-  - TASK=lint
-  - TASK=test
-  - TASK=coverage
   - TASK=test:gas:ci
 before_script:
   - npm prune
