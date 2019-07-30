@@ -5,6 +5,8 @@ node_js:
   - '10'
 cache:
   npm: false
+before_install:
+  - sudo apt-get install -y netcat
 env:
   - TASK=test:gas:ci
 script: "npm run $TASK"
