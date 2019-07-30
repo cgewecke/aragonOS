@@ -9,6 +9,8 @@ env:
   - TASK=coverage
   - TASK=test:gas:ci
 before_script:
+  - rm -rf node_modules
+  - npm install
   - npm prune
 script: "npm run $TASK"
 after_success:
