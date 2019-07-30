@@ -1,17 +1,14 @@
 language: node_js
-cache:
-  directories:
-    - node_modules
 notifications:
   email: false
 node_js:
-  - '8'
+  - '10'
+cache:
+  npm: false
+before_install:
+  - sudo apt-get install -y netcat
 env:
-  - TASK=lint
-  - TASK=test
-  - TASK=coverage
-before_script:
-  - npm prune
+  - TASK=test:gas:ci
 script: "npm run $TASK"
 after_success:
   - cat coverage/lcov.info | ./node_modules/.bin/coveralls
